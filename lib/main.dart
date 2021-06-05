@@ -6,7 +6,15 @@ import 'package:tvshow/pages/reminder.dart';
 import 'package:tvshow/pages/create-reminder.dart';
 
 void main() => runApp(MaterialApp(
-      initialRoute: '/create-reminder',
+    title: "Tv Show Reminder",
+    theme: ThemeData(
+      // Define the default brightness and colors.
+      brightness: Brightness.dark,
+      primaryColor: Color.fromARGB(255, 214, 64, 69),
+      accentColor: Color.fromARGB(255, 18, 53, 91),
+
+      ),
+      initialRoute: '/login',
       routes: {
         '/login': (context) => Login(),
         '/channels': (context) => Channel(),
