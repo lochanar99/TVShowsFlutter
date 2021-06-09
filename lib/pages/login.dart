@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 
@@ -14,14 +13,22 @@ class _State extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
+        body: Center(
           child: Container(
             width: 350,
             height: 450,
             padding: EdgeInsets.all(20),
-            color: Colors.blueGrey[300],
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Theme.of(context).backgroundColor
+            ),
             child: ListView(
+              padding: EdgeInsets.all(0),
               children: <Widget>[
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/tv.png'),
+                  radius: 35,
+                ),
                 Container(
                     alignment: Alignment.center,
                     padding: EdgeInsets.all(10),
@@ -30,18 +37,31 @@ class _State extends State<Login> {
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w500,
-                        color: Theme.of(context).backgroundColor
+                        color: Theme.of(context).accentColor
                       ),
-                    )),
+                    )
+                ),
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
                     controller: nameController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                      labelText: 'Enter user name',
-                      labelStyle: TextStyle(color: Colors.red),
-                    ),
+                      labelText: 'Enter Username',
+                      labelStyle: TextStyle(color: Colors.white),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white
+                        ),
+                        borderRadius: BorderRadius.circular(20)
+                      )
+                    )
                   ),
                 ),
                 Container(
@@ -50,25 +70,54 @@ class _State extends State<Login> {
                     obscureText: true,
                     controller: passwordController,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                      labelText: 'Password',
-                    ),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+                      labelText: 'Enter Password',
+                      labelStyle: TextStyle(color: Colors.white),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white
+                        ),
+                        borderRadius: BorderRadius.circular(20)
+                      )
+                    )
                   ),
                 ),
-                FlatButton(
+                TextButton(
+                  child: Text(
+                        "Forgot Password",
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: Theme.of(context).accentColor)
+                        ),
                   onPressed: (){
                     //forgot password screen
                   },
-                  textColor: Theme.of(context).accentColor,
-                  child: Text('Forgot Password'),
+
                 ),
                 Container(
-                  height: 50,
+                  height: 40,
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Colors.blue,
-                      child: Text('Login'),
+                    child: ElevatedButton(
+                      child: Text(
+                        "Login".toUpperCase(),
+                        style: TextStyle(fontSize: 14)
+                      ),
+                      style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          )
+                        )
+                      ),
                       onPressed: () {
                         print(nameController.text);
                         print(passwordController.text);
@@ -77,12 +126,22 @@ class _State extends State<Login> {
                 Container(
                   child: Row(
                     children: <Widget>[
-                      Text('Does not have account?'),
-                      FlatButton(
-                        textColor: Colors.blue,
+                      Text(
+                        "Don't have account?",
+                        style: TextStyle(fontWeight: FontWeight.w400),
+                      ),
+                      TextButton(
                         child: Text(
-                          'Sign in',
-                          style: TextStyle(fontSize: 20),
+                        "Sign Up".toUpperCase(),
+                        style: TextStyle(fontSize: 12)
+                        ),
+                        style: ButtonStyle(
+                          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            )
+                          )
                         ),
                         onPressed: () {
                           //signup screen
