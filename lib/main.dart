@@ -11,7 +11,7 @@ void main() => runApp(MaterialApp(
       // Define the default colors.
       primaryColor: Color.fromARGB(255, 214, 64, 69),
       accentColor: Color.fromARGB(255, 18, 53, 91),
-
+      backgroundColor: Color.fromARGB(255, 244, 250, 255)
       ),
       initialRoute: '/login',
       routes: {
