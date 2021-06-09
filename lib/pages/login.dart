@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -6,48 +8,39 @@ class Login extends StatefulWidget {
 }
 
 class _State extends State<Login> {
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     body: SafeArea(
-  //       child: Text('login screen')),
-  //   );
-  // }
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-            padding: EdgeInsets.all(10),
+        body: SafeArea(
+          child: Container(
+            width: 350,
+            height: 450,
+            padding: EdgeInsets.all(20),
+            color: Colors.blueGrey[300],
             child: ListView(
               children: <Widget>[
                 Container(
                     alignment: Alignment.center,
-                    padding: EdgeInsets.all(20),
-                    child: Text(
-                      'TutorialKart',
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 30),
-                    )),
-                Container(
-                    color: Theme.of(context).primaryColor,
-                    alignment: Alignment.center,
                     padding: EdgeInsets.all(10),
                     child: Text(
                       'Sign in',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500,
+                        color: Theme.of(context).backgroundColor
+                      ),
                     )),
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
                     controller: nameController,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'User Name',
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+                      labelText: 'Enter user name',
+                      labelStyle: TextStyle(color: Colors.red),
                     ),
                   ),
                 ),
@@ -57,7 +50,7 @@ class _State extends State<Login> {
                     obscureText: true,
                     controller: passwordController,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                       labelText: 'Password',
                     ),
                   ),
@@ -66,7 +59,7 @@ class _State extends State<Login> {
                   onPressed: (){
                     //forgot password screen
                   },
-                  textColor: Colors.blue,
+                  textColor: Theme.of(context).accentColor,
                   child: Text('Forgot Password'),
                 ),
                 Container(
@@ -99,6 +92,6 @@ class _State extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.center,
                 ))
               ],
-            )));
+            ))));
   }
 }
