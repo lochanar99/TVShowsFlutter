@@ -13,7 +13,17 @@ class _State extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Center(
+          child: Container(
+            constraints: BoxConstraints.expand(),
+            padding: EdgeInsets.fromLTRB(50, 100, 50, 150),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/Wallpaper.png"),
+                  fit: BoxFit.cover
+                )
+              ),
           child: Container(
             width: 350,
             height: 450,
@@ -25,9 +35,10 @@ class _State extends State<Login> {
             child: ListView(
               padding: EdgeInsets.all(0),
               children: <Widget>[
-                CircleAvatar(
-                  backgroundImage: AssetImage('assets/tv.png'),
-                  radius: 35,
+                 Icon(
+                  Icons.tv_rounded,
+                  color: Theme.of(context).primaryColor,
+                  size: 30.0,
                 ),
                 Container(
                     alignment: Alignment.center,
@@ -151,6 +162,10 @@ class _State extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.center,
                 ))
               ],
-            ))));
+            )
+          )
+        )
+      )
+    );
   }
 }
