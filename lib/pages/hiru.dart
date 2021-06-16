@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tvshow/pages/reminder.dart';
 
+import 'create-reminder.dart';
+
 class Hiru extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,12 @@ Widget _myListView(BuildContext context) {
               backgroundImage: AssetImage('assets/images/hirutv.png'),
             ),
             title: Text('News'),
-            subtitle: Text('HiruTV News')
+            subtitle: Text('HiruTV News'),
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder(),
+            ),
+            );
+          },
 
         ),
       ),
@@ -48,7 +55,7 @@ Widget _myListView(BuildContext context) {
           title: Text('Cartoons'),
           subtitle: Text('Hiru TV cartoons'),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Reminder(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder(),
             ),
             );
           },
@@ -63,6 +70,11 @@ Widget _myListView(BuildContext context) {
           ),
           title: Text('Movie1'),
           subtitle: Text('Hiru TV Movies'),
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder(),
+            ),
+            );
+          },
         ),
       )
     ],
