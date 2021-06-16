@@ -19,7 +19,7 @@ class _State extends State<Login> {
             constraints: BoxConstraints.expand(),
             padding: EdgeInsets.fromLTRB(50, 100, 50, 150),
               decoration: BoxDecoration(
- 
+
               ),
           child: Container(
             width: 350,
@@ -96,41 +96,29 @@ class _State extends State<Login> {
                     )
                   ),
                 ),
-                TextButton(
-                  child: Text(
-                        "Forgot Password",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: Theme.of(context).accentColor)
-                        ),
-                  onPressed: (){
-                    //forgot password screen
-                  },
-
-                ),
                 Container(
                   height: 40,
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: ElevatedButton(
-                      child: Text(
-                        "Login".toUpperCase(),
-                        style: TextStyle(fontSize: 14)
-                      ),
-                      style: ButtonStyle(
-                        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                        backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          )
+                  margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: ElevatedButton(
+                    child: Text(
+                      "Login".toUpperCase(),
+                      style: TextStyle(fontSize: 14)
+                    ),
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                      backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         )
-                      ),
-                      onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
-                      },
-                    )),
+                      )
+                    ),
+                    onPressed: () {
+                      print(nameController.text);
+                      print(passwordController.text);
+                    },
+                  )),
                 Container(
                   child: Row(
                     children: <Widget>[
