@@ -1,7 +1,7 @@
-
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:tvshow/model/reminders.dart';
+import 'package:tvshow/model/user.dart';
 import 'package:tvshow/pages/reminder.dart';
 
 class ReminderDatabase {
@@ -11,22 +11,21 @@ class ReminderDatabase {
 
   ReminderDatabase._init();
 
-  Future<Database> get database async{
-    if(_database !=null) return _database!;
+  Future<Database> get database async {
+    if (_database != null) return _database!;
 
     _database = await _initDB('reminder.db');
     return _database!;
   }
 
-  Future<Database> _initDB(String filePath)async{
+  Future<Database> _initDB(String filePath) async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
     return await openDatabase(path, version: 1, onCreate: _createDB);
   }
 
-  Future _createDB(Database db, int version) async{
-
+  Future _createDB(Database db, int version) async {
     final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
     final textType = 'TEXT NOT NULL';
 
@@ -38,18 +37,29 @@ class ReminderDatabase {
     ${RemindersFields.timer} $textType)
     ''');
 
+    await db.execute('''
+    CREATE TABLE $usersTable(
+    ${UserFields.id} $idType,
+    ${UserFields.email} $textType,
+    ${UserFields.password} $textType,
+    ''');
   }
 
-  Future<Reminders?> create(Reminders reminder) async{
-    final db =  await instance.database;
+  Future<Reminders?> create(Reminders reminder) async {
+    final db = await instance.database;
 
     final id = await db.insert(tableReminders, reminder.toJson());
     return reminder.copy(id: id);
-
   }
 
+  Future<Users?> createUser(Users user) async {
+    final db = await instance.database;
 
-  Future close()async {
+    final id = await db.insert(usersTable, user.toJson());
+    return user.copy(id: id);
+  }
+
+  Future close() async {
     final db = await instance.database;
 
     db.close();

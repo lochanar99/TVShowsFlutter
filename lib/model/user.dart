@@ -1,5 +1,5 @@
 
-final String users = 'users';
+final String usersTable = 'users';
 
 class UserFields{
   static final String id = '_id';
