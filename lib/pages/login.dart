@@ -19,10 +19,7 @@ class _State extends State<Login> {
             constraints: BoxConstraints.expand(),
             padding: EdgeInsets.fromLTRB(50, 100, 50, 150),
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/Wallpaper.png"),
-                  fit: BoxFit.cover
-                )
+ 
               ),
           child: Container(
             width: 350,

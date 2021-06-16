@@ -17,7 +17,7 @@ void main() => runApp(MaterialApp(
       accentColor: Color.fromARGB(255, 18, 53, 91),
       backgroundColor: Color.fromARGB(255,	71,	89,	126)
       ),
-      initialRoute: '/login',
+      initialRoute: '/create-reminder',
       routes: {
         '/login': (context) => Login(),
         '/channels': (context) => Channel(),
