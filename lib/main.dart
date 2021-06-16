@@ -7,6 +7,7 @@ import 'package:tvshow/pages/sirasa.dart';
 import 'package:tvshow/pages/tv-show.dart';
 import 'package:tvshow/pages/reminder.dart';
 import 'package:tvshow/pages/create-reminder.dart';
+import 'package:tvshow/pages/register.dart';
 
 
 void main() => runApp(MaterialApp(
@@ -17,7 +18,7 @@ void main() => runApp(MaterialApp(
       accentColor: Color.fromARGB(255, 18, 53, 91),
       backgroundColor: Color.fromARGB(255,	71,	89,	126)
       ),
-      initialRoute: '/create-reminder',
+      initialRoute: '/register',
       routes: {
         '/login': (context) => Login(),
         '/channels': (context) => Channel(),
@@ -26,7 +27,8 @@ void main() => runApp(MaterialApp(
         '/create-reminder': (context) => CreateReminder(),
         '/hiru': (context) => Hiru(),
         '/derena': (context) => Derena(),
-        '/sirasa': (context) => Sirasa()
+        '/sirasa': (context) => Sirasa(),
+        '/register': (context) => Register()
       },
     ));
 
