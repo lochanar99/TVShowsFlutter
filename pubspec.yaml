@@ -25,6 +25,8 @@ dependencies:
   dropdownfield: ^0.0.2
   flutter:
     sdk: flutter
+  splashscreen: 
+
 
 
 

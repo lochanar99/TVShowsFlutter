@@ -41,6 +41,7 @@ class ReminderDatabase {
     CREATE TABLE $usersTable(
     ${UserFields.id} $idType,
     ${UserFields.email} $textType,
+    ${UserFields.name} $textType,
     ${UserFields.password} $textType,
     ''');
   }
