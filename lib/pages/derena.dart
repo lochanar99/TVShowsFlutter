@@ -5,6 +5,12 @@ import 'create-reminder.dart';
 
 class Derena extends StatelessWidget {
   @override
+
+  final String channel;
+  final String show;
+
+  Derena(this.channel, this.show);
+
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -39,7 +45,7 @@ Widget _myListView(BuildContext context) {
             title: Text('News'),
             subtitle: Text('Derena News'),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("News","Derena TV News"),
             ),
             );
           },
@@ -55,7 +61,7 @@ Widget _myListView(BuildContext context) {
           title: Text('Cartoons'),
           subtitle: Text('Derena TV cartoons'),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Cartoons", "Derena TV Cartoons"),
             ),
             );
           },
@@ -71,7 +77,7 @@ Widget _myListView(BuildContext context) {
           title: Text('Movie1'),
           subtitle: Text('Derena TV Movies'),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Movies", "Derena TV Movies"),
             ),
             );
           },

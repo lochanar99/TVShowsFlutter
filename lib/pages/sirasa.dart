@@ -44,7 +44,7 @@ Widget _myListView(BuildContext context) {
             title: Text('News'),
             subtitle: Text('Sirasa TV News'),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Sirasa","Sirasa TV News"),
             ),
             );
           },
@@ -60,7 +60,7 @@ Widget _myListView(BuildContext context) {
           title: Text('Cartoons'),
           subtitle: Text('Sirasa TV cartoons'),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Cartoons", "Sirasa TV Cartoons"),
             ),
             );
           },
@@ -76,7 +76,7 @@ Widget _myListView(BuildContext context) {
           title: Text('Sports'),
           subtitle: Text('Srilanka vs Bangaladesh'),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Sports","Sirasa TV Sports"),
             ),
             );
           },

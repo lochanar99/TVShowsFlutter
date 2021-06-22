@@ -48,7 +48,7 @@ Widget _myListView(BuildContext context) {
           visualDensity: VisualDensity.compact,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Hiru(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Hiru("x","y"),
             ),
             );
           },
@@ -69,7 +69,7 @@ Widget _myListView(BuildContext context) {
           visualDensity: VisualDensity.compact,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Derena(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Derena("x","y"),
             ),
             );
           },
@@ -89,7 +89,7 @@ Widget _myListView(BuildContext context) {
           visualDensity: VisualDensity.compact,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Sirasa(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Sirasa("x","y"),
             ),
             );
           },
@@ -101,15 +101,15 @@ Widget _myListView(BuildContext context) {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: ListTile(
           leading: CircleAvatar(
-            backgroundImage: AssetImage('assets/images/hirutv.png'),
+            backgroundImage: AssetImage('assets/images/hbo.png'),
           ),
-          title: Text('HiruTV', style: TextStyle(color: Colors.white)),
-          subtitle: Text('Entertainment, Drama, News, Cartoons', style: TextStyle(color: Colors.white60)),
+          title: Text('HBO', style: TextStyle(color: Colors.white)),
+          subtitle: Text('Entertainment, Drama and Movies', style: TextStyle(color: Colors.white60)),
           tileColor: Theme.of(context).accentColor,
           visualDensity: VisualDensity.compact,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Hiru(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Hiru("x","y"),
             ),
             );
           },
@@ -122,15 +122,15 @@ Widget _myListView(BuildContext context) {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: ListTile(
           leading: CircleAvatar(
-            backgroundImage: AssetImage('assets/images/derenatv.png'),
+            backgroundImage: AssetImage('assets/images/tensports.png'),
           ),
-          title: Text('Derena TV', style: TextStyle(color: Colors.white)),
-          subtitle: Text('Entertainment, Drama, News, Cartoons', style: TextStyle(color: Colors.white60)),
+          title: Text('Ten Sports', style: TextStyle(color: Colors.white)),
+          subtitle: Text('Sports', style: TextStyle(color: Colors.white60)),
           tileColor: Theme.of(context).accentColor,
           visualDensity: VisualDensity.compact,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Derena(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Derena("x","y"),
             ),
             );
           },
@@ -142,15 +142,15 @@ Widget _myListView(BuildContext context) {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: ListTile(
           leading: CircleAvatar(
-            backgroundImage: AssetImage('assets/images/sirasatv.png'),
+            backgroundImage: AssetImage('assets/images/bbc.png'),
           ),
-          title: Text('Sirasa TV', style: TextStyle(color: Colors.white)),
-          subtitle: Text('Entertainment, Drama, News, Cartoons', style: TextStyle(color: Colors.white60)),
+          title: Text('BBC', style: TextStyle(color: Colors.white)),
+          subtitle: Text('News 24x7', style: TextStyle(color: Colors.white60)),
           tileColor: Theme.of(context).accentColor,
           visualDensity: VisualDensity.compact,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Sirasa(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Sirasa("x","y"),
             ),
             );
           },

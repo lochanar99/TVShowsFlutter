@@ -2,6 +2,10 @@
 final String tableReminders = 'reminders';
 
 class RemindersFields{
+
+  static final List<String> values = [channel, show, timer];
+
+
   static final String id = '_id';
   static final String channel = 'channel';
   static final String show = 'show';
@@ -43,4 +47,11 @@ class Reminders {
     RemindersFields.timer: timer,
 
   };
+
+  static Reminders fromJson(Map<String, Object?> json) => Reminders(
+    id: json[RemindersFields.id] as int?,
+    channel: json[RemindersFields.channel] as String,
+    show: json[RemindersFields.show] as String,
+    timer: json[RemindersFields.timer] as String
+  );
 }

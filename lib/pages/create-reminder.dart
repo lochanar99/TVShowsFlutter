@@ -118,7 +118,12 @@ class MyCustomFormState extends State<MyCustomForm> {
     color: Colors.white,
     child: new ElevatedButton(
     child: const Text('Submit'),
-    onPressed: null,
+    onPressed: () {
+
+      setState(() {
+        sendData(title, show, dropdownValue);
+      });
+    },
     )),
         ],
       ),
@@ -127,7 +132,10 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   void sendData(String title, String show, String timer){
 
-   helper.create(new Reminders(title = "x", show, timer));
+   var reminders = helper.create(new Reminders(channel: title ,show: show, timer: timer));
+   //if(reminders.)
+
+
 
 
   }
