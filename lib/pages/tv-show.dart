@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tvshow/pages/viewAllReminders.dart';
 import 'sirasa.dart';
 import 'derena.dart';
 import 'hiru.dart';
@@ -17,6 +18,14 @@ class Tvshow extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: Text('TV shows'), backgroundColor: Theme.of(context).primaryColor,),
         body: BodyLayout(
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.red,
+          child: Icon(Icons.timer),
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> ViewAllReminders(),
+            ));
+          },
         ),
       ),
     );
@@ -48,6 +57,8 @@ Widget _myListView(BuildContext context) {
           visualDensity: VisualDensity.compact,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
+            //AlertDialog(title: Text('TV Show Clicked') );
+
             Navigator.push(context, MaterialPageRoute(builder: (context)=> Hiru("x","y"),
             ),
             );

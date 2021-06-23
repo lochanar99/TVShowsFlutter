@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:tvshow/db/reminder_database.dart';
 import 'package:tvshow/model/reminders.dart';
 import 'package:tvshow/pages/reminder.dart';
+import 'package:tvshow/pages/tv-show.dart';
+import 'package:tvshow/pages/viewAllReminders.dart';
 
 //void main() => runApp(CreateReminder());
 
@@ -18,6 +20,11 @@ class CreateReminder extends StatelessWidget {
     final appTitle = 'Create Reminder';
     return MaterialApp(
       title: appTitle,
+      theme: ThemeData(
+          primaryColor: Color.fromARGB(255, 214, 64, 69),
+          accentColor: Color.fromARGB(255, 18, 53, 91),
+          backgroundColor: Color.fromARGB(255,	71,	89,	126)
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text(appTitle),
@@ -37,6 +44,7 @@ class MyCustomForm extends StatefulWidget {
 
   @override
   MyCustomFormState createState() {
+
     return MyCustomFormState(title,show);
   }
 }
@@ -73,6 +81,7 @@ class MyCustomFormState extends State<MyCustomForm> {
         children: <Widget>[
           TextFormField(
             controller: _title,
+
             decoration: const InputDecoration(
               icon: const Icon(Icons.campaign),
               labelText: 'Channel',
@@ -117,9 +126,9 @@ class MyCustomFormState extends State<MyCustomForm> {
           padding: const EdgeInsets.only(left: 150.0, top: 40.0),
     color: Colors.white,
     child: new ElevatedButton(
-    child: const Text('Submit'),
+    child: const Text('Add'),
     onPressed: () {
-
+      showAlertDialog(context);
       setState(() {
         sendData(title, show, dropdownValue);
       });
@@ -130,15 +139,40 @@ class MyCustomFormState extends State<MyCustomForm> {
     );
   }
 
-  void sendData(String title, String show, String timer){
-
-   var reminders = helper.create(new Reminders(channel: title ,show: show, timer: timer));
-   //if(reminders.)
-
-
-
+  void sendData(String title, String show, String timer) {
+    var reminders = helper.create(
+        new Reminders(channel: title, show: show, timer: timer));
+    //if(reminders.)
 
   }
+
+showAlertDialog(BuildContext context) {
+  Widget okButton = ElevatedButton(
+    child: Text("OK"),
+    onPressed: () {
+      Navigator.of(context, rootNavigator: true).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> ViewAllReminders()));
+
+    },
+  );
+
+
+  AlertDialog alert = AlertDialog(
+    title: Text("Reminder Added"),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    barrierDismissible: true,
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
 
 
 }

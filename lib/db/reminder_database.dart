@@ -25,11 +25,11 @@ class ReminderDatabase {
   Future<Database> get database async{
     if(_database !=null) return _database!;
 
-    _database = await _initDB('reminder.db');
+    _database = await initDB('reminder.db');
     return _database!;
   }
 
-  Future<Database> _initDB(String filePath)async{
+  Future<Database> initDB(String filePath)async{
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
@@ -49,6 +49,8 @@ class ReminderDatabase {
     ${RemindersFields.show} $textType,
     ${RemindersFields.timer} $textType)
     ''');
+
+
 
   }
 
@@ -90,6 +92,9 @@ Future <List<Reminders>> readAll()async{
 }
 
 Future<int> update(Reminders reminder) async {
+
+    print("xxxx");
+
     final db = await instance.database;
 
     return db.update(tableReminders, reminder.toJson(),
@@ -97,9 +102,10 @@ Future<int> update(Reminders reminder) async {
       whereArgs: [reminder.id],
 
     );
+
 }
 
-Future<int> delete (int id) async{
+Future<int> delete (int? id) async{
     final db = await instance.database;
 
     return await db.delete(tableReminders,

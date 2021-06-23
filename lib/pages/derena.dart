@@ -15,9 +15,11 @@ class Derena extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ListViews',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
+        theme: ThemeData(
+            primaryColor: Color.fromARGB(255, 214, 64, 69),
+            accentColor: Color.fromARGB(255, 18, 53, 91),
+            backgroundColor: Color.fromARGB(255,	71,	89,	126)
+        ),
       home: Scaffold(
         appBar: AppBar(title: Text('TV Programmes Available')),
         body: BodyLayout(),
@@ -38,14 +40,19 @@ Widget _myListView(BuildContext context) {
   return ListView(
     children: <Widget>[
       Card(
+  margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: ListTile(
             leading: CircleAvatar(
               backgroundImage: AssetImage('assets/images/derenatv.png'),
             ),
-            title: Text('News'),
-            subtitle: Text('Derena News'),
+            title: Text('News',style: TextStyle(color: Colors.white60)),
+            subtitle: Text('Derena News',style: TextStyle(color: Colors.white60)),
+          tileColor: Theme.of(context).accentColor,
+          visualDensity: VisualDensity.compact,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("News","Derena TV News"),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Derena TV","Derena TV News"),
             ),
             );
           },
@@ -54,14 +61,19 @@ Widget _myListView(BuildContext context) {
       ),
 
       Card(
+        margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: ListTile(
           leading: CircleAvatar(
             backgroundImage: AssetImage('assets/images/derenatv.png'),
           ),
-          title: Text('Cartoons'),
-          subtitle: Text('Derena TV cartoons'),
+          title: Text('Cartoons',style: TextStyle(color: Colors.white60)),
+          subtitle: Text('Derena TV cartoons',style: TextStyle(color: Colors.white60)),
+          tileColor: Theme.of(context).accentColor,
+          visualDensity: VisualDensity.compact,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Cartoons", "Derena TV Cartoons"),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Derena TV", "Derena TV Cartoons"),
             ),
             );
           },
@@ -74,10 +86,13 @@ Widget _myListView(BuildContext context) {
           leading: CircleAvatar(
             backgroundImage: AssetImage('assets/images/derenatv.png'),
           ),
-          title: Text('Movie1'),
-          subtitle: Text('Derena TV Movies'),
+          title: Text('Thor',style: TextStyle(color: Colors.white60)),
+          subtitle: Text('Derena TV Movies',style: TextStyle(color: Colors.white60)),
+          tileColor: Theme.of(context).accentColor,
+          visualDensity: VisualDensity.compact,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Movies", "Derena TV Movies"),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Derena TV", "Ragnarok"),
             ),
             );
           },

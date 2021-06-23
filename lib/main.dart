@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:tvshow/pages/derena.dart';
 import 'package:tvshow/pages/hiru.dart';
@@ -7,10 +9,12 @@ import 'package:tvshow/pages/sirasa.dart';
 import 'package:tvshow/pages/tv-show.dart';
 import 'package:tvshow/pages/reminder.dart';
 import 'package:tvshow/pages/create-reminder.dart';
+import 'package:tvshow/pages/update-reminders.dart';
 
 
 void main() => runApp(MaterialApp(
     title: "Tv Show Reminder",
+    debugShowCheckedModeBanner: false,
     theme: ThemeData(
       // Define the default colors.
       primaryColor: Color.fromARGB(255, 214, 64, 69),
@@ -26,7 +30,8 @@ void main() => runApp(MaterialApp(
         '/create-reminder': (context) => CreateReminder("a", "b"),
         '/hiru': (context) => Hiru("a","b"),
         '/derena': (context) => Derena("a","b"),
-        '/sirasa': (context) => Sirasa("a","b")
+        '/sirasa': (context) => Sirasa("a","b"),
+        '/update-reminders':(context) => UpdateReminder(1,"a","b","x")
       },
     ));
 

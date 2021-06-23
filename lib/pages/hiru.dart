@@ -16,7 +16,9 @@ class Hiru extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ListViews',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+          primaryColor: Color.fromARGB(255, 214, 64, 69),
+          accentColor: Color.fromARGB(255, 18, 53, 91),
+          backgroundColor: Color.fromARGB(255,	71,	89,	126)
       ),
       home: Scaffold(
         appBar: AppBar(title: Text('TV Programmes Available')),
@@ -38,14 +40,19 @@ Widget _myListView(BuildContext context) {
   return ListView(
     children: <Widget>[
       Card(
+        margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: ListTile(
             leading: CircleAvatar(
               backgroundImage: AssetImage('assets/images/hirutv.png'),
             ),
-            title: Text('News'),
-            subtitle: Text('HiruTV News'),
+            title: Text('News',style: TextStyle(color: Colors.white60)),
+            subtitle: Text('HiruTV News',style: TextStyle(color: Colors.white60)),
+          tileColor: Theme.of(context).accentColor,
+          visualDensity: VisualDensity.compact,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("News", "Hiru TV News"),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Hiru TV", "Hiru TV News"),
             ),
             );
           },
@@ -54,12 +61,17 @@ Widget _myListView(BuildContext context) {
       ),
 
       Card(
+        margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: ListTile(
           leading: CircleAvatar(
             backgroundImage: AssetImage('assets/images/hirutv.png'),
           ),
-          title: Text('Cartoons'),
-          subtitle: Text('Hiru TV cartoons'),
+          title: Text('Cartoons', style: TextStyle(color: Colors.white60)),
+          subtitle: Text('Hiru TV cartoons', style: TextStyle(color: Colors.white60)),
+          tileColor: Theme.of(context).accentColor,
+          visualDensity: VisualDensity.compact,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Hiru TV", "Hiru TV Cartoons"),
             ),
@@ -69,15 +81,19 @@ Widget _myListView(BuildContext context) {
       ),
 
       Card(
-
+        margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: ListTile(
           leading: CircleAvatar(
             backgroundImage: AssetImage('assets/images/hirutv.png'),
           ),
-          title: Text('Movie1'),
-          subtitle: Text('Hiru TV Movies'),
+          title: Text('Ragnarok',style: TextStyle(color: Colors.white60)),
+          subtitle: Text('Hiru TV Movies',style: TextStyle(color: Colors.white60)),
+          tileColor: Theme.of(context).accentColor,
+          visualDensity: VisualDensity.compact,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Hiru TV", "Hiru TV Movies"),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Hiru TV", "Ragnarok"),
             ),
             );
           },
