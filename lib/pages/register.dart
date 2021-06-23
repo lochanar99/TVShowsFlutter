@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tvshow/model/user.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:tvshow/db/reminder_database.dart';
+import 'package:tvshow/pages/login.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -14,6 +16,8 @@ class _State extends State<Register> {
 
   final _formKey = GlobalKey<FormState>();
 
+  ReminderDatabase helper = ReminderDatabase();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +25,7 @@ class _State extends State<Register> {
         body: Center(
             child: Container(
                 constraints: BoxConstraints.expand(),
-                padding: EdgeInsets.fromLTRB(50, 90, 50, 100),
+                padding: EdgeInsets.fromLTRB(50, 90, 50, 70),
                 decoration: BoxDecoration(),
                 child: Container(
                     width: 350,
@@ -168,21 +172,47 @@ class _State extends State<Register> {
                                       ))),
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
-                                      addNote();
+                                      register();
                                     }
                                   },
                                 )),
+                            Container(
+                                child: Row(
+                              children: <Widget>[
+                                Text(
+                                  "Have an account already?",
+                                  style: TextStyle(fontWeight: FontWeight.w400),
+                                ),
+                                TextButton(
+                                  child: Text("Sign In".toUpperCase(),
+                                      style: TextStyle(fontSize: 12)),
+                                  style: ButtonStyle(
+                                      foregroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.white),
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ))),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Login()));
+                                  },
+                                )
+                              ],
+                              mainAxisAlignment: MainAxisAlignment.center,
+                            ))
                           ],
                         ))))));
   }
 
-  Future addNote() async {
-    final user = Users(
-      email: emailController.text,
-      name: nameController.text,
-      password: passwordController.text,
-    );
-
-    await ReminderDatabase.instance.createUser(user);
+  void sendData() {
+    var user = helper.createUser(new Users(
+        email: emailController.text,
+        name: nameController.text,
+        password: passwordController.text));
   }
 }

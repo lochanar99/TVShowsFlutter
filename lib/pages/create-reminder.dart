@@ -4,6 +4,9 @@ import 'package:tvshow/db/reminder_database.dart';
 import 'package:tvshow/model/reminders.dart';
 import 'package:tvshow/pages/reminder.dart';
 
+import 'dart:developer';
+
+
 //void main() => runApp(CreateReminder());
 
 class CreateReminder extends StatelessWidget {
@@ -134,7 +137,7 @@ class MyCustomFormState extends State<MyCustomForm> {
 
    var reminders = helper.create(new Reminders(channel: title ,show: show, timer: timer));
    //if(reminders.)
-
+    log('$reminders');
 
 
 

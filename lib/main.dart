@@ -9,8 +9,7 @@ import 'package:tvshow/pages/tv-show.dart';
 import 'package:tvshow/pages/reminder.dart';
 import 'package:tvshow/pages/create-reminder.dart';
 import 'package:tvshow/pages/register.dart';
-import 'package:splashscreen/splashscreen.dart';
-
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 void main() => runApp(MaterialApp(
     title: "Tv Show Reminder",
@@ -43,14 +42,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return new SplashScreen(
-      seconds: 5,
-      navigateAfterSeconds: '/register',
-      image: new Image.asset('assets/images/tv.png'),
-      styleTextUnderTheLoader: new TextStyle(),
-      photoSize: 150.0,
-      onClick: ()=>print("Flutter Egypt"),
-      loaderColor: Theme.of(context).primaryColor
+    return AnimatedSplashScreen(
+      nextScreen: Register(),
+      duration: 5000,
+      animationDuration: Duration(seconds: 2),
+      splash: new Image.asset('assets/images/tv.png'),
+      splashIconSize: 300
     );
   }
 }

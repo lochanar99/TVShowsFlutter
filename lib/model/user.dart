@@ -1,4 +1,4 @@
-final String usersTable = 'users';
+final String usersTable = 'user';
 
 class UserFields {
   static final String id = '_id';
@@ -38,5 +38,12 @@ class Users {
         UserFields.email: email,
         UserFields.name: name,
         UserFields.password: password,
-      };
+  };
+
+  static Users fromJson(Map<String, Object?> json) => Users(
+    id: json[UserFields.id] as int?,
+    email: json[UserFields.email] as String,
+    name: json[UserFields.name] as String,
+    password: json[UserFields.password] as String
+  );
 }
