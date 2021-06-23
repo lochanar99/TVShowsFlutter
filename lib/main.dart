@@ -26,10 +26,10 @@ void main() => runApp(MaterialApp(
         '/channels': (context) => Channel(),
         '/shows': (context) => Tvshow(),
         '/reminders': (context) => Reminder(),
-        '/create-reminder': (context) => CreateReminder(),
-        '/hiru': (context) => Hiru(),
-        '/derena': (context) => Derena(),
-        '/sirasa': (context) => Sirasa(),
+        '/create-reminder': (context) => CreateReminder("a", "b"),
+        '/hiru': (context) => Hiru("a", "b"),
+        '/derena': (context) => Derena("a", "b"),
+        '/sirasa': (context) => Sirasa("a", "b"),
         '/register': (context) => Register()
       },
 ));

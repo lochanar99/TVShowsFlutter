@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:tvshow/pages/create-reminder.dart';
 import 'package:tvshow/pages/reminder.dart';
 
 class Sirasa extends StatelessWidget {
+
+  final String Channel;
+  final String show;
+
+  Sirasa(this.Channel, this.show);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,7 +42,12 @@ Widget _myListView(BuildContext context) {
               backgroundImage: AssetImage('assets/images/sirasatv.png'),
             ),
             title: Text('News'),
-            subtitle: Text('Sirasa TV News')
+            subtitle: Text('Sirasa TV News'),
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Sirasa","Sirasa TV News"),
+            ),
+            );
+          },
 
         ),
       ),
@@ -48,7 +60,7 @@ Widget _myListView(BuildContext context) {
           title: Text('Cartoons'),
           subtitle: Text('Sirasa TV cartoons'),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Reminder(),
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Cartoons", "Sirasa TV Cartoons"),
             ),
             );
           },
@@ -63,6 +75,11 @@ Widget _myListView(BuildContext context) {
           ),
           title: Text('Sports'),
           subtitle: Text('Srilanka vs Bangaladesh'),
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateReminder("Sports","Sirasa TV Sports"),
+            ),
+            );
+          },
         ),
       )
     ],
