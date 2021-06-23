@@ -46,33 +46,12 @@ class _MyAppState extends State<MyApp> {
     return new SplashScreen(
       seconds: 5,
       navigateAfterSeconds: '/register',
-      image: new Image.asset('assets/images/tv.jpg'),
+      image: new Image.asset('assets/images/tv.png'),
       styleTextUnderTheLoader: new TextStyle(),
-      photoSize: 100.0,
+      photoSize: 150.0,
       onClick: ()=>print("Flutter Egypt"),
       loaderColor: Theme.of(context).primaryColor
     );
   }
 }
-
-class AfterSplash extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-      title: new Text("Welcome In SplashScreen Package"),
-      automaticallyImplyLeading: false
-      ),
-      body: new Center(
-        child: new Text("Done!",
-        style: new TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 30.0
-        ),),
-
-      ),
-    );
-  }
-}
-
 
