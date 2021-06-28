@@ -3,6 +3,8 @@ import 'package:tvshow/model/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tvshow/db/reminder_database.dart';
 import 'package:tvshow/pages/login.dart';
+import 'dart:developer';
+
 
 class Register extends StatefulWidget {
   @override
@@ -172,7 +174,7 @@ class _State extends State<Register> {
                                       ))),
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
-                                      register();
+                                      sendData();
                                     }
                                   },
                                 )),
@@ -214,5 +216,12 @@ class _State extends State<Register> {
         email: emailController.text,
         name: nameController.text,
         password: passwordController.text));
+
+    if(user != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Login()));
+    }
   }
 }

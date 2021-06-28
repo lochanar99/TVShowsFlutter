@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tvshow/model/user.dart';
 import 'package:tvshow/pages/register.dart';
-import 'package:tvshow/pages/tv-show.dart';
 import 'package:tvshow/db/reminder_database.dart';
+import 'dart:developer';
+
+import 'package:tvshow/pages/tv-show.dart';
+
 
 class Login extends StatefulWidget {
   @override
@@ -137,7 +140,8 @@ class _State extends State<Login> {
                                       ))),
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
-                                      login();
+                                      sendData(nameController.text,
+                                          passwordController.text);
                                     }
                                   },
                                 )),
@@ -173,8 +177,14 @@ class _State extends State<Login> {
                           ],
                         ))))));
   }
-}
 
-void sendData(String username, String password) {
-  var user = helper.create(new Users(email: email, show: show, timer: timer));
+  void sendData(String username, String password) {
+    var user = helper.getLogin(username, password);
+    if(user != null) {
+       Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Tvshow()));
+    }
+  }
 }
